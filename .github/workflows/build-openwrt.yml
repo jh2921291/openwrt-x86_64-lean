@@ -16,19 +16,38 @@ on:
       - master
     paths:
       - '.config'
-#  schedule:
-#    - cron: 0 8 * * 5
+
+# 例子是北京时间每周五下午 4 点钟开始编译（周末下班回家直接下载最新固件开始折腾）。如需自定义则按照 cron 格式修改即可，Ac­tions 虚拟环境中的时区是 UTC ，注意按照自己所在地时区进行转换。
+
+ schedule:
+   - cron: 0 8 * * 5
 #  watch:
 #    types: started
 
+
+
+
+
+
+
+
+
 env:
+  # REPO_URL	源码仓库地址
   REPO_URL: https://github.com/coolsnowwolf/lede
+  # REPO_BRANCH	源码分支
   REPO_BRANCH: master
+  # CONFIG_FILE	.config文件名
   CONFIG_FILE: .config
+  # DIY_SH	DIY 脚本文件名
   DIY_SH: diy.sh
+  # SSH_ACTIONS	SSH 连接 Actions 功能。默认false
   SSH_ACTIONS: false
+  # UPLOAD_BIN_DIR	上传 bin 目录。即包含所有 ipk 文件和固件的目录。默认false
   UPLOAD_BIN_DIR: false
+  # UPLOAD_FIRMWARE	上传固件目录。默认true
   UPLOAD_FIRMWARE: true
+  # TZ	时区设置
   TZ: Asia/Shanghai
 
 jobs:
