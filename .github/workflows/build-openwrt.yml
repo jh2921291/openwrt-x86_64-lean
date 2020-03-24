@@ -3,7 +3,7 @@
 # Description: Build OpenWrt using GitHub Actions
 # Lisence: MIT
 # Author: P3TERX
-# Blog: https://p3terx.com
+# Blog: https://p3terx.com 范例时周五下午4点自动编译 utc时区
 #=================================================
 
 name: Build OpenWrt
@@ -16,9 +16,6 @@ on:
       - master
     paths:
       - '.config'
-
-# 例子是北京时间每周五下午 4 点钟开始编译（周末下班回家直接下载最新固件开始折腾）。如需自定义则按照 cron 格式修改即可，Ac­tions 虚拟环境中的时区是 UTC ，注意按照自己所在地时区进行转换。
-
  schedule:
    - cron: 0 8 * * 5
 #  watch:
